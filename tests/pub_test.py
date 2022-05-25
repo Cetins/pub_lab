@@ -22,9 +22,10 @@ class TestPub(unittest.TestCase):
         self.assertEqual(150, self.pub.till)
 
     def test_sell_drink(self):
-        self.pub.sell_drink(self.drink, self.customer1)
+        self.pub.sell_drink(self.drink, self.customer3)
         self.assertEqual(107, self.pub.till)
-        self.assertEqual(93, self.customer1.wallet)
+        self.assertEqual(73, self.customer3.wallet)
+        self.assertEqual(65, self.customer3.drunkness)
 
     def test_check_age__True(self):
         age = self.customer1.age
@@ -33,3 +34,11 @@ class TestPub(unittest.TestCase):
     def test_check_age__False(self):
         age = self.customer2.age
         self.assertEqual(False, self.pub.check_age(age))
+
+    def test_check_drunkness__True(self):
+        drunkness = self.customer1.drunkness
+        self.assertEqual(False, self.pub.check_drunkness(drunkness, self.drink))
+
+    def test_check_drunkness__False(self):
+        drunkness = self.customer3.drunkness
+        self.assertEqual(True, self.pub.check_drunkness(drunkness, self.drink))
