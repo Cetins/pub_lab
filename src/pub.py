@@ -25,4 +25,6 @@ class Pub:
             customer.buy_drink(drink.price, drink.alcohol_level)
             return drink.price
 
-    
+    def sell_food(self, customer, food):
+        self.increase_till(food.price)
+        customer.buy_food(food)

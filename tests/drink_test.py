@@ -6,3 +6,5 @@ class TestDrink(unittest.TestCase):
     def setUp(self):
         self.drink = Drink("Martini", 7, 45)
 
+    def test_drink_has_name(self):
+            self.assertEqual("Martini", self.drink.name)
