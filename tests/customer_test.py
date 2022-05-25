@@ -9,13 +9,7 @@ class TestCustomer(unittest.TestCase):
     def test_find_customer_by_name(self):
         self.assertEqual("Paul Smith", self.customer.name)
         
-     
-        #    customer
-        # buy_drink(self, drink):
-        #     drink = pub.sell_drinks()
-        #     self.wallet -= drink.price
-        #     return customer.
-
-
-        # list = []
-        # tuple = ()
+    def test_buy_drink(self):
+        self.customer.buy_drink(7)
+        self.assertEqual(93, self.customer.wallet)
+        
