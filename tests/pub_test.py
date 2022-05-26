@@ -56,7 +56,7 @@ class TestPub(unittest.TestCase):
         self.assertEqual(10, self.customer1.drunkness)
         
     def test_add_drink(self):
-        self.pub.drinks = self.pub.add_drink(self.drinks_stock)
+        self.pub.add_drink(self.drinks_stock)
         self.assertEqual(self.pub.drinks, self.drinks_stock)
 
     def test_stock_value(self):

@@ -5,8 +5,7 @@ class Pub:
         self.drinks = []
         
     def add_drink(self, drinks_list):
-        for drink in drinks_list:
-            self.drinks.append(drink)
+        self.drinks = drinks_list.copy()
         
     def increase_till(self, amount):
         self.till += amount
