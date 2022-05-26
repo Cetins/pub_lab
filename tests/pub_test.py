@@ -6,11 +6,11 @@ from src.food import Food
 
 class TestPub(unittest.TestCase):
     def setUp(self):
-        self.pub = Pub("The Prancing Pony", 100, "Martini")
+        self.pub = Pub("The Prancing Pony", 100, [])
         self.drink1 = Drink("Martini", 7, 45, 11)
         self.drink2 = Drink("Beer", 3, 45, 32)
         self.drink3 = Drink("Whiskey", 20, 45, 3)
-        self.drinks = [self.drink1, self.drink2, self.drink3]
+        self.drinks_stock = [self.drink1, self.drink2, self.drink3]
         self.customer1 = Customer("Paul Smith", 100, 80, 60)
         self.customer2 = Customer("Jane Fonda", 150, 16, 0)
         self.customer3 = Customer("Oscar Wilde", 80, 21, 20)
@@ -54,9 +54,15 @@ class TestPub(unittest.TestCase):
         self.assertEqual(115, self.pub.till)
         self.assertEqual(85, self.customer1.wallet)
         self.assertEqual(10, self.customer1.drunkness)
+        
+    def test_add_drink(self):
+        self.pub.drinks = self.pub.add_drink(self.drinks_stock)
+        self.assertEqual(self.pub.drinks, self.drinks_stock)
 
     def test_stock_value(self):
-        self.assertEqual(233, self.pub.stock_value())
+        self.pub.add_drink(self.drinks_stock)
+        stock = self.pub.stock_value(self.pub.drinks)
+        self.assertEqual(233, stock)
         
         
     

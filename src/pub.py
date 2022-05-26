@@ -2,8 +2,14 @@ class Pub:
     def __init__(self, name, till, drinks):
         self.name = name
         self.till = till
-        self.drinks = drinks
+        self.drinks = []
         
+        
+    
+    def add_drink(self, drinks):
+        for drink in drinks:
+            self.drinks.append(drink)
+        return self.drinks
         
     def increase_till(self, amount):
         self.till += amount
@@ -31,8 +37,9 @@ class Pub:
         self.increase_till(food.price)
         customer.buy_food(food)
 
-    def stock_value(self):
+    def stock_value(self, drinks):
+        self.add_drink(drinks)
         stock = 0
         for drink in self.drinks:
-            stock =+ (drink.price * drink.stock)
-            return stock
+            stock += (drink.price * drink.stock)
+        return stock
