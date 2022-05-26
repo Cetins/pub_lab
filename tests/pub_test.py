@@ -63,6 +63,3 @@ class TestPub(unittest.TestCase):
         self.pub.add_drink(self.drinks_stock)
         stock = self.pub.stock_value(self.pub.drinks)
         self.assertEqual(233, stock)
-        
-        
-    
